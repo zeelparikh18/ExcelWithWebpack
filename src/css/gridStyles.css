@@ -25,7 +25,9 @@ td{
 
 #menu{
   background: white;
-  border: 1px solid #ccc;
+  border: 1px solid #f3f3f3;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.188235) 0px 0.1rem 0.3rem 0px;
   margin: 6px;
   position: absolute;
 }

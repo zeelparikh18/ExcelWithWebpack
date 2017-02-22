@@ -1,7 +1,7 @@
 import Menu from './Menu';
 
 function setEventListener(){
-  const that = this;
+  var that = this;
   that.node.addEventListener('contextmenu', function(ev){
     ev.preventDefault();
     Menu.openMenu({
@@ -14,16 +14,21 @@ function setEventListener(){
 };
 
 function Header(number,type){
-    this.headerType = type;
-    this.headerNumber = number;
-    this.setNode();
-    setEventListener.call(this);
+    var that = this;
+    that.headerType = type;
+    that.headerNumber = number;
+    that.setNode();
+    setEventListener.call(that);
 }
 
 Header.prototype.setNode = function(){
   var headerNode = document.createElement('th');
   headerNode.innerHTML = this.headerNumber + 1;
   this.node = headerNode;
+};
+
+Header.prototype.getNode = function() {
+  return this.node;
 };
 
 Header.prototype.updateHeaderNumber = function(headerNumber){
