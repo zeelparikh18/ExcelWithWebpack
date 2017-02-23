@@ -3,9 +3,14 @@ table{
 }
 
 th{
-  width: 40px;
-  height: 30px;
   background: #f5f5fa;
+  height: 30px;
+  width: 40px;
+
+}
+
+td{
+  padding: 0 !important;
 }
 
 input{
@@ -17,10 +22,6 @@ input{
 input:focus {
   border: 1px solid green;
   outline:none;
-}
-
-td{
-  padding: 0 !important;
 }
 
 #menu{

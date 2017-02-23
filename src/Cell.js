@@ -17,7 +17,7 @@ Cell.prototype.setNode = function () {
     rowNode.appendChild(cellNode);
   }
   cellNode.appendChild(inputNode);
-  inputNode.value = this.value;
+  inputNode.value = this.value || '';
   this.node = cellNode;
   addEventListeners.call(this);
 };

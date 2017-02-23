@@ -3,9 +3,12 @@ import Header from './Header';
 import tableHtml from './html/table.html';
 
 function Grid(m, n) {
-  var that = this;
-  that.nRows = m;
-  that.nCols = n;
+  var that = this,
+    tableValues = JSON.parse(window.localStorage.getItem('table')|| '[]'),
+    nRows = tableValues.length,
+    nCols = nRows && (tableValues[0] || []).length;
+  that.nRows = nRows || m;
+  that.nCols = nCols || n;
   that.cells = [];
   that.colHeaders = [];
   that.rowHeaders = [];
