@@ -9,14 +9,14 @@ th{
 }
 
 input{
-  border: 0;
+  border: 1px solid transparent;
   height: 30px;
   padding: 0 5px;
 }
 
-input:focus{
+input:focus {
+  border: 1px solid green;
   outline:none;
-  border:1px solid green;
 }
 
 td{
@@ -29,6 +29,7 @@ td{
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.188235) 0px 0.1rem 0.3rem 0px;
   margin: 6px;
+  min-width: 100px;
   position: absolute;
 }
 

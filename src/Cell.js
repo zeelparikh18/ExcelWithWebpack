@@ -17,7 +17,7 @@ Cell.prototype.setNode = function () {
     rowNode.appendChild(cellNode);
   }
   cellNode.appendChild(inputNode);
-  inputNode.value = (this.rowNumber + 1) + ',' + (this.colNumber + 1);
+  inputNode.value = this.value;
   this.node = cellNode;
   addEventListeners.call(this);
 };
@@ -34,7 +34,7 @@ Cell.prototype.updatePosition = function (rowNumber, colNumber) {
 
 function addEventListeners() {
   var that = this;
-  this.node.getElementsByTagName('input')[0].onkeypress = function (ev) {
+  this.node.getElementsByTagName('input')[0].onkeyup = function (ev) {
     ev.stopPropagation();
     var currentValue = ev.target.value;
     if (currentValue !== that.value) {

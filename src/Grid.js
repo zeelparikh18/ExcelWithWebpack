@@ -20,7 +20,7 @@ Grid.prototype.createGrid = function () {
   createTable.call(that);
   addEventListeners.call(that);
   setUpAutoSave.call(that);
-}
+};
 
 Grid.prototype.updateGrid = function (action, type, positionFrom) {
   var that = this,
@@ -39,7 +39,7 @@ Grid.prototype.updateGrid = function (action, type, positionFrom) {
 
       //inserting in DOM
       row = document.createElement('tr');
-      that.el.insertBefore(row, that.el.childNodes[positionFrom + 2]);
+      that.el.insertBefore(row, that.el.children[positionFrom + 2]);
       row.appendChild(newHeader.node);
 
       //updating JS object
@@ -58,7 +58,7 @@ Grid.prototype.updateGrid = function (action, type, positionFrom) {
       //columns
       that.nCols += 1;
       var colHeaderNode = document.getElementById('colHeader');
-      colHeaderNode.insertBefore(newHeader.node, colHeaderNode.childNodes[positionFrom + 2])
+      colHeaderNode.insertBefore(newHeader.node, colHeaderNode.children[positionFrom + 2])
 
       for (i = 0; i < that.nRows; i++) {
         that.cells[i].splice(positionFrom, 0, new Cell(i, positionFrom));
@@ -98,12 +98,12 @@ Grid.prototype.updateGrid = function (action, type, positionFrom) {
         rowNode;
 
       //removing header from DOM
-      colHeaderNode.removeChild(colHeaderNode.childNodes[positionFrom + 1])
+      colHeaderNode.removeChild(colHeaderNode.children[positionFrom + 1])
 
       //removing cells from DOM
       for (i = 1; i <= that.nRows; i++) {
         rowNode = rowNodes[i];
-        rowNode.removeChild(rowNode.childNodes[positionFrom + 1]);
+        rowNode.removeChild(rowNode.children[positionFrom + 1]);
       }
 
       //removing from js object
@@ -185,7 +185,7 @@ function saveInLocalStorage() {
 }
 
 function setUpAutoSave() {
-  setTimeout(this.saveInLocalStorage, 3000);
+  setInterval(this.saveInLocalStorage, 3000);
 }
 
 export default Grid;
